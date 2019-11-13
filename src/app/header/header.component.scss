@@ -1,20 +1,23 @@
 header {
     .header-label {
-
+        background: #000000;
+        min-height: 35px;
+        p {
+            font-size: 12px;
+            color: #FFFFFF;
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 15px;
+            padding: 10px 0px;
+        }
     }
     main-header {
         .menu {
-            .menu-text {
-
-            }
-            .logo {
-                
-            }
+            .menu-text {}
+            .logo {}
         }
         .side-menu {
-            .menu-text {
-
-            }
+            .menu-text {}
         }
     }
 }
