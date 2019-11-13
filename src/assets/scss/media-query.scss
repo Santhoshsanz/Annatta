@@ -1,0 +1,45 @@
+
+// Extra Small devices (landscape phones, 576px and less)
+$xs: "only screen and (min-width: 0px) and (max-device-width : 576px)";
+
+// Small devices (landscape phones, 576px and up)
+$sm: "only screen and (min-width: 576px) and (max-device-width : 768px)";
+
+// Medium devices (tablets, 768px and up)
+$md: "only screen and (min-width: 768px) and (max-device-width : 992px)";
+// Large devices (desktops, 992px and up)
+
+$lg: "only screen and (min-width: 992px) and (max-device-width : 1200px)";
+
+// Extra large devices (large desktops, 1200px and up)
+$xl: "only screen and (min-width: 1200px)";
+
+
+
+@mixin respond-to($media) {
+    @if $media==xs {
+        @media #{$xs} {
+            @content;
+        }
+    }
+    @if $media==sm {
+        @media #{$sm} {
+            @content;
+        }
+    }
+    @if $media==md {
+        @media #{$md} {
+            @content;
+        }
+    }
+    @if $media==lg {
+        @media #{$lg} {
+            @content;
+        }
+    }
+    @if $media==xl {
+        @media #{$xl} {
+            @content;
+        }
+    }
+}

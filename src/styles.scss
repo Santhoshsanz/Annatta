@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Reset Browser Default
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@import "media-query";
+.c-flex {
+    display: flex
+}
+
+.c-space-between {
+    justify-content: space-between;
+}
+.cl, div[class*="cl"]{
+    padding:0px 15px;
+}
+
+.cl {
+    display: flex;
+    width: 100%
+}
+
+.cl-4 {
+    display: flex;
+    width: 33.33%
+}
+
+.cl-8 {
+    display: flex;
+    width: 66.66%
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@include respond-to(sm) {
+    .cl-sm-12 {
+        display: flex;
+        width: 100%;
+    }
+    .order-sm-1 {
+        order: 1
+    }
+}
+
+@include respond-to(xs) {
+    .cl-xs-12 {
+        display: flex;
+        width: 100%;
+    }
+    .order-xs-1 {
+        order: 1
+    }
+}
+
+@include respond-to(md) {}
+
+@include respond-to(lg) {}
+
+@include respond-to(xl) {}
