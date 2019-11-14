@@ -6,17 +6,47 @@
     padding: 0;
 }
 
+.w100 {
+    width: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
 @import "media-query";
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 .c-flex {
-    display: flex
+    display: flex;
+}
+
+.d-show {
+    display: block;
+}
+
+.d-show-12 {
+    display: none;
 }
 
 .c-space-between {
     justify-content: space-between;
 }
-.cl, div[class*="cl"]{
-    padding:0px 15px;
+
+.c-center {
+    justify-content: center;
 }
+
+.c-align-center {
+    align-items: center;
+}
+
+.column {
+    flex-direction: column;
+    width: 100%;
+}
+
+.cl,
+div[class*="cl"] {}
 
 .cl {
     display: flex;
@@ -55,6 +85,12 @@
     }
     .order-xs-1 {
         order: 1
+    }
+    .d-show {
+        display: none;
+    }
+    .d-show-12 {
+        display: block;
     }
 }
 

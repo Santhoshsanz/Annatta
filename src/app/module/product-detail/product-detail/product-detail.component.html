@@ -1,9 +1,71 @@
 <div class="row">
     <div class="cl-4 cl-xs-12 cl order-xs-1">
-        Decription
+        <div class="c-flex column w100 c-center c-align-center">
+            <div class="overview">
+                <div class="c-flex c-space-between">
+                    <span class="product-name">{{product?.name}}</span>
+                    <span class="price">{{product?.price}}</span>
+                </div>
+                <div class="c-flex c-space-between">
+                    <span class="description">{{product?.description}}</span>
+                    <span class="rating">
+                        <i *ngFor="let s of stars">
+                            <img [src]="star">
+                        </i>
+                        <i>
+                            <img [src]="fullStar">
+                        </i>154 Rating</span>
+                </div>
+            </div>
+            <div class="size-chart">
+                <div class="c-flex c-space-between sep">
+                    <div class="tab c-flex c-center c-align-center" [ngClass]="{'in-active-left':men}" (click)='toggleSizeChart()'>
+                        <span>MEN</span>
+                    </div>
+                    <div class="tab c-flex c-center c-align-center" [ngClass]="{'in-active':!men}" (click)='toggleSizeChart()'>
+                        <span>WOMEN</span>
+                    </div>
+                </div>
+                <div class="pad-12 size-color-pallete">
+                    <span>SELECT COLOR</span>
+                    <div class="colors c-flex">
+                        <div class="marker" *ngFor="let color of colorPallete" [ngStyle]="{ 'background-color': color }"></div>
+                        <div class="marker marker-multi"></div>
+                    </div>
+                </div>
+                <div class="pad-12 size-index">
+                    <div class="c-flex c-space-between">
+                        <span>SELECT SIZE</span>
+                        <span class="underline">SIZE & FIT GUIDE</span>
+                    </div>
+                    <div class="size-panel c-flex">
+                        <div class="sizer" *ngFor="let size of sizeList" [ngClass]="{'disabled':!size.disabled }">
+                            <span>
+                                {{size.size}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-button w100">
+                    <span>ADD TO BAG</span>
+                </div>
+            </div>
+            <div>
+                <span class="shipping">Worldwide Shipping + Free Returns</span>
+            </div>
+        </div>
     </div>
     <div class="cl-8 cl-xs-12 cl">
-        Carousel
+        <div class="c-flex column">
+            <div class="product-main-image c-flex c-center">
+                <img [src]="image?.url">
+            </div>
+            <div class="carousel-container c-flex c-center">
+                <div class="thumbnail c-flex c-center c-align-center" *ngFor="let image of images;">
+                    <img [src]="image?.url" (click)="getImagebyProductId(image)">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -21,15 +83,4 @@
         Features Strip
     </div>
 </div>
-Products
-{{products|json}}
-
-
-Product
-{{product|json}}
-
-Image
-{{image|json}}
-
-Images
-{{images|json}}
+<!-- Products {{products|json}} Product {{product|json}} Image {{image|json}} Images {{images|json}} -->

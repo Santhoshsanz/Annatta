@@ -63,4 +63,16 @@ export class ProductsService {
       });
     });
   }
+
+  getImagebyProductIdImageId(productId, imageId): Observable<products.ProductImage> {
+    const url = `${apiData.url}${apiData.product}/${productId}/image/${imageId}`;
+    return new Observable(observer => {
+      this.getData(url).subscribe((response: products.ProductImage) => {
+        observer.next(response);
+        observer.complete();
+      }, error => {
+        throw new Error(JSON.stringify(error));
+      });
+    });
+  }
 }
