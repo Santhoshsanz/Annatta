@@ -1,5 +1,51 @@
-<div class="row">
+<footer>
+    <div class="row">
         <div class="cl">
-           Footer
+            <div class="c-flex c-space-between w100 footerMenu">
+                <div class="listing">
+                    <h4>Men</h4>
+                    <ul>
+                        <li *ngFor="let list of footerListMen">{{list}}</li>
+                    </ul>
+                </div>
+                <div class="listing">
+                        <h4>Women</h4>
+                        <ul>
+                            <li *ngFor="let list of footerListMen">{{list}}</li>
+                        </ul>
+                    </div>
+                <div class="listing">
+                    <h4>SUPPORT</h4>
+                    <ul>
+                        <li *ngFor="let list of support">{{list}}</li>
+                    </ul>
+                </div>
+                <div class="listing">
+                    <h4>About</h4>
+                    <ul>
+                        <li *ngFor="let list of about">{{list}}</li>
+                    </ul>
+                </div>
+                <div class="listing">
+                    <h4>PopUp Stores</h4>
+                    <ul>
+                        <li *ngFor="let list of stores">{{list}}</li>
+                    </ul>
+                </div>
+                <div class="listing">
+                        <h4>NewsLetter</h4>
+                        <ul>
+                            <li *ngFor="let list of stores">{{list}}</li>
+                        </ul>
+                    </div>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="cl">
+            <span class="copyright">
+                Copyright © 2019 CARIUMA. All Rights Reserved. Terms of Use | Privacy Policy
+            </span>
+        </div>
+    </div>
+</footer>

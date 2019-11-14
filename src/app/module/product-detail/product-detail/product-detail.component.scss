@@ -184,6 +184,12 @@
     letter-spacing: 0;
     text-align: center;
 }
+.strip{
+    img{
+        width:100%;
+    }
+
+}
 
 @include respond-to(xs) {
     .product-main-image {

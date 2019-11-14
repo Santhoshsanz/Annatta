@@ -13,6 +13,8 @@ export class ProductDetailComponent implements OnInit {
   image: products.ProductImage;
   fullStar: string = require('./../../../../assets/images/Star-full.svg');
   star: string = require('./../../../../assets/images/star.svg');
+  strip = require('./../../../../assets/images/features.svg');
+  stripSmall = require('./../../../../assets/images/features.svg');
   stars = [0, 1, 2, 3, 4];
   men: boolean = true;
   colorPallete: string[] = ['#F7F7F7', '#072348', '#BB0D0F', '#FFCF60', '#4E4E4E', '#129F7D', '#C69F97', '#000000', '#215297', '#B3926E'];
@@ -92,7 +94,7 @@ export class ProductDetailComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe((products: products.Product[]) => {
       this.products = products;
-      this.getProduct(this.products[2].id);
+      this.getProduct(this.products[7].id);
     });
   }
   getProduct(productId) {
