@@ -48,14 +48,27 @@ footer {
     }
 }
 
+.strip {
+    max-height: 58px;
+    margin-top: 80px;
+    img {
+        width: 100%;
+    }
+}
+
 @include respond-to(xs) {
-    footer {  padding: 0px 40px;
-  padding-top: 55px;
+    footer {
+        padding: 0px 40px;
+        padding-top: 55px;
         .footerMenu {
             .listing {
                 flex: 0 50%;
                 ul {
                     margin-bottom: 38px;
+                }
+                &:last-child{
+                    order: -1;
+                    flex: 0 100%;
                 }
             }
         }

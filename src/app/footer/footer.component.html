@@ -1,6 +1,13 @@
+<div class="cl strip">
+    <img class="d-show" [src]="strip">
+    <img class="d-show-12" [src]="stripSmall">
+</div>
 <footer>
     <div class="row">
-        <div class="cl">
+
+    </div>
+    <div class="row">
+        <div class="cl c-flex c-space-between">
             <div class="c-flex c-space-between w100 footerMenu">
                 <div class="listing">
                     <h4>Men</h4>
@@ -9,11 +16,11 @@
                     </ul>
                 </div>
                 <div class="listing">
-                        <h4>Women</h4>
-                        <ul>
-                            <li *ngFor="let list of footerListMen">{{list}}</li>
-                        </ul>
-                    </div>
+                    <h4>Women</h4>
+                    <ul>
+                        <li *ngFor="let list of footerListMen">{{list}}</li>
+                    </ul>
+                </div>
                 <div class="listing">
                     <h4>SUPPORT</h4>
                     <ul>
@@ -33,11 +40,11 @@
                     </ul>
                 </div>
                 <div class="listing">
-                        <h4>NewsLetter</h4>
-                        <ul>
-                            <li *ngFor="let list of stores">{{list}}</li>
-                        </ul>
-                    </div>
+                    <h4>NewsLetter</h4>
+                    <ul>
+                        <li *ngFor="let list of stores">{{list}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

@@ -1,4 +1,23 @@
+@import "media-query";
 .container{
-    // width: 1440px;
-    // margin: 0px auto;
+    max-width: 1440px;
+    margin: 0px auto;
+}
+.main-wrapper{
+    // padding: 0px 25px;
+    .bread{
+        margin-left: 50px;
+        margin-top: 25px;
+        font-size: 10px;
+        color: #4A4A4A;
+        letter-spacing: 0;
+    }
+}
+@include respond-to(xs) {
+    .main-wrapper{
+        // padding: 0px 20px;
+        .bread{
+            margin-left: 20px;
+        }
+    }   
 }

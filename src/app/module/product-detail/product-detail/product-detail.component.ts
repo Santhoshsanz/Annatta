@@ -15,9 +15,21 @@ export class ProductDetailComponent implements OnInit {
   star: string = require('./../../../../assets/images/star.svg');
   strip = require('./../../../../assets/images/features.svg');
   stripSmall = require('./../../../../assets/images/features.svg');
+  arrowRight = require('./../../../../assets/images/arrow-right.png');
+  arrowLeft = require('./../../../../assets/images/arrow-left.png');
   stars = [0, 1, 2, 3, 4];
   men: boolean = true;
   colorPallete: string[] = ['#F7F7F7', '#072348', '#BB0D0F', '#FFCF60', '#4E4E4E', '#129F7D', '#C69F97', '#000000', '#215297', '#B3926E'];
+
+  listOfItems: any = [{ name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: './../../../../assets/images/canvas.png' },
+  { name: 'Black Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas1.png' },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: './../../../../assets/images/canvas.png' },
+  { name: 'White Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas.png' },
+  { name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: './../../../../assets/images/canvas.png' },
+  { name: 'Black Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas1.png' },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: './../../../../assets/images/canvas.png' },
+  { name: 'White Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas.png' }
+  ];
   sizeList = [{
     size: 5,
     disabled: true
@@ -94,7 +106,7 @@ export class ProductDetailComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe((products: products.Product[]) => {
       this.products = products;
-      this.getProduct(this.products[7].id);
+      this.getProduct(this.products[3].id);
     });
   }
   getProduct(productId) {

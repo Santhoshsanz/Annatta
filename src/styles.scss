@@ -71,7 +71,9 @@ div[class*="cl"] {}
     display: flex;
     flex-wrap: wrap;
 }
-
+.pad-25{
+    padding: 0px 25px;
+}
 @include respond-to(sm) {
     .cl-sm-12 {
         display: flex;
@@ -95,6 +97,9 @@ div[class*="cl"] {}
     }
     .d-show-12 {
         display: block;
+    }
+    .pad-25{
+        padding: 0px 0px;
     }
 }
 
