@@ -19,16 +19,17 @@ export class ProductDetailComponent implements OnInit {
   arrowLeft = require('./../../../../assets/images/arrow-left.png');
   stars = [0, 1, 2, 3, 4];
   men: boolean = true;
+  cIndex = 0;
   colorPallete: string[] = ['#F7F7F7', '#072348', '#BB0D0F', '#FFCF60', '#4E4E4E', '#129F7D', '#C69F97', '#000000', '#215297', '#B3926E'];
 
-  listOfItems: any = [{ name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url:  require('./../../../../assets/images/canvas.png') },
-  { name: 'Black Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas1.png') },
-  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url:  require('./../../../../assets/images/canvas.png') },
-  { name: 'White Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas.png') },
-  { name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url:  require('./../../../../assets/images/canvas.png') },
-  { name: 'Black Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas1.png') },
-  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url:  require('./../../../../assets/images/canvas.png') },
-  { name: 'White Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas.png') }
+  listOfItems: any = [{ name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: require('./../../../../assets/images/canvas.png') },
+  { name: 'Black Canvas', price: '79', desc: '', url: require('./../../../../assets/images/canvas1.png') },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: '', url: require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: require('./../../../../assets/images/canvas.png') },
+  { name: 'Black Canvas', price: '79', desc: '', url: require('./../../../../assets/images/canvas1.png') },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: '', url: require('./../../../../assets/images/canvas.png') }
   ];
   sizeList = [{
     size: 5,
@@ -103,35 +104,43 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     this.getProducts();
   }
+  // Get All Products
   getProducts() {
     this.productService.getProducts().subscribe((products: products.Product[]) => {
       this.products = products;
       this.getProduct(this.products[2].id);
     });
   }
+  // Get Product
   getProduct(productId) {
     this.productService.getProduct(productId).subscribe((products: products.Product) => {
       this.product = products;
       this.getImagesByProduct(this.product.id);
     });
   }
+  // Get Image
   getImage(imageId) {
     this.productService.getImage(imageId).subscribe((image: products.ProductImage) => {
       this.image = image;
     });
   }
+  //  Get Image by Product Id
   getImagesByProduct(productId) {
     this.productService.getImagesByProduct(productId).subscribe((image: products.ProductImage[]) => {
       this.images = image;
+      this.cIndex = this.images[0].id;
       this.getImage(this.images[0].id);
     });
   }
+
+  // Get Image By Product and Image Id
   getImagebyProductId(image: products.ProductImage) {
     this.productService.getImagebyProductIdImageId(image.productId, image.id).subscribe((img: products.ProductImage) => {
-      // console.log(img);
+      this.cIndex = img.id;
       this.image = img;
     });
   }
+  // Toggle Men Women
   toggleSizeChart() {
     this.men = !this.men;
   }

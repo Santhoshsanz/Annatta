@@ -72,10 +72,9 @@
                         <img [src]="image?.url">
                     </div>
                     <div class="carousel-container c-flex c-center">
-                            <!-- <div class="overlay"></div> -->
                         <!-- Caorusel -->
                         <div class="car-container thumbnail-container" ng2-carouselamos [width]="" [items]="images" [$item]="itemTemplateThumbnail"
-                            [$prev]="prevTemplateThumbnail" [$next]="nextTemplateThumbnail" (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index;getImagebyProductId($event.item)"></div>
+                            [$prev]="prevTemplateThumbnail" [$next]="nextTemplateThumbnail" (onSelectedItem)="selectedItem = $event.item;cIndex=$event.item.id; selectedIndex = $event.index;getImagebyProductId($event.item)"></div>
                     </div>
                 </div>
             </div>
@@ -94,7 +93,7 @@
             <div class="cl rel">
                 <div class="overlay"></div>
                 <div class="car-container d-show" ng2-carouselamos [width]="" [items]="listOfItems" [$item]="itemTemplate" [$prev]="prevTemplate"
-                    [$next]="nextTemplate" (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index"></div>
+                    [$next]="nextTemplate" (onSelectedItem)="selectedItem = $event.item;selectedIndex = $event.index"></div>
                    <div class="d-show-12 car-container md-view">
                         <div class="product-wrapper" *ngFor="let item of listOfItems.slice(0,4);">
                                 <div class="product-image">
@@ -112,14 +111,7 @@
             </div>
         </div>
     </div>
-    <!-- Products {{products|json}} Product {{product|json}} Image {{image|json}} Images {{images|json}} -->
-
-
-    <!-- <div>
-    Current item selected
-    <br /> {{ selectedIndex }} - {{ selectedItem }}
-</div> -->
-
+<!-- Templates For Carousel -->
     <ng-template #prevTemplate>
         <span>
             <img class="arrowL" [src]="arrowLeft">
@@ -159,10 +151,10 @@
     </ng-template>
 
     <ng-template let-item let-i="index" #itemTemplateThumbnail>
-        <!-- *ngFor="let image of images;" -->
-        <div class="thumbnail c-flex c-center c-align-center">
+        <div class="thumbnail c-flex c-center c-align-center" [ngClass]="{'active':cIndex==item.id}">
             <img [src]="item?.url">
         </div>
     </ng-template>
 </div>
-<!-- {{image|json}} -->
+
+{{cIndex}}
