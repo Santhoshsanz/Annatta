@@ -6,10 +6,11 @@
         width: 100%;
         img {
             height: 100%;
-            width: 100%;
+            max-width: 100%;
         }
     }
     .carousel-container {
+        position: relative;
         margin-top: 5px;
         .thumbnail {
             height: 60px;
@@ -29,7 +30,8 @@
         color: #4A4A4A;
         letter-spacing: 0;
         text-align: right;
-        font-size: 12px; // max-width: 400px;
+        font-size: 12px; 
+        max-width: 400px;
         max-height: 44px;
         margin-bottom: 32px;
         width: 100%;
@@ -43,6 +45,7 @@
         }
         .description,
         .rating {
+            text-align: right;
             font-size: 12px;
             color: #4A4A4A;
             letter-spacing: 0;
@@ -54,10 +57,14 @@
                 margin-right: 12px
             }
         }
+        .description{
+            text-align: left;
+        }
     }
     .size-chart {
         color: #4A4A4A;
-        letter-spacing: 0; // max-width: 400px;
+        letter-spacing: 0;
+        max-width: 400px;
         margin-bottom: 20px;
         width: 100%;
         border: 1px solid #BBBBBB;
@@ -192,8 +199,7 @@
     ::ng-deep {
         .ng2-carouselamos-wrapper {
             max-width: 1400px !important;
-            width: 100% !important;
-            // margin-right: 50px;
+            width: 100% !important; // margin-right: 50px;
         }
         .arrowL {
             position: absolute;
@@ -206,6 +212,7 @@
     }
     .car-container {
         width: 100%;
+        max-width: 1400px;
         margin-bottom: 35px;
         .product-wrapper {
             position: relative;
@@ -223,6 +230,7 @@
                     color: #4A4A4A;
                     letter-spacing: 0.42px;
                     border-radius: 4px;
+                    text-transform: uppercase;
                 }
             }
             .product-text {
@@ -243,11 +251,31 @@
                 }
             }
         }
+        &.thumbnail-container {
+            max-width: 590px;
+            ::ng-deep {
+                .ng2-carouselamos-wrapper {
+                    max-width: 590px !important;
+                    width: 100% !important; // margin-right: 50px;
+                }
+                .arrowL {
+                    position: absolute;
+                    left: -3%;
+                    top: -10px;
+                }
+                .arrowR {
+                    position: absolute;
+                    right: 3%;
+                    top: -10px;
+                }
+            }
+        }
     }
     .fav {
         padding: 0px 50px;
         background-color: #fafafa;
         .product-list {
+            width: 100%;
             h3 {
                 font-size: 24px;
                 color: #4A4A4A;
@@ -272,6 +300,7 @@
             }
         }
         .overview {
+            padding: 0px 20px;
             width: 100%;
             min-width: auto !important;
             margin-bottom: 20px;
@@ -285,9 +314,58 @@
             }
         }
         .size-chart {
+            // padding: 0px 20px;
             border-top: 1px solid #BBBBBB;
             border-bottom: 1px solid #BBBBBB;
             margin-bottom: 15px;
         }
+        .fav {
+            padding: 0px 20px;
+            .product-list {
+                text-align: center;
+            }
+        }
+    }
+    .product-wrapper-container {
+        .car-container {
+            &.md-view {
+                display: flex !important;
+                flex-wrap: wrap;
+                .product-wrapper {
+                    position: relative;
+                    margin-right: 6px;
+                    max-width: 48%;
+                    .product-image {
+                        img{
+                            max-width: 100%
+                        }
+                    }
+                }
+            }
+            position: relative;
+            &.thumbnail-container {
+                max-width: 590px;
+                ::ng-deep {
+                    .controls {
+                        position: absolute;
+                        top: -150px;
+                    }
+                    .arrowL {
+                        position: absolute;
+                        left: 40px;
+                        top: -10px;
+                    }
+                    .arrowR {
+                        position: absolute;
+                        right: 40px;
+                        top: -10px;
+                    }
+                }
+            }
+        }
     }
 }
+
+// position: absolute;
+// right: 20px;
+// top: -188px;R

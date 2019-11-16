@@ -21,14 +21,14 @@ export class ProductDetailComponent implements OnInit {
   men: boolean = true;
   colorPallete: string[] = ['#F7F7F7', '#072348', '#BB0D0F', '#FFCF60', '#4E4E4E', '#129F7D', '#C69F97', '#000000', '#215297', '#B3926E'];
 
-  listOfItems: any = [{ name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: './../../../../assets/images/canvas.png' },
-  { name: 'Black Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas1.png' },
-  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: './../../../../assets/images/canvas.png' },
-  { name: 'White Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas.png' },
-  { name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url: './../../../../assets/images/canvas.png' },
-  { name: 'Black Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas1.png' },
-  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url: './../../../../assets/images/canvas.png' },
-  { name: 'White Canvas', price: '79', desc: '', url: './../../../../assets/images/canvas.png' }
+  listOfItems: any = [{ name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url:  require('./../../../../assets/images/canvas.png') },
+  { name: 'Black Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas1.png') },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url:  require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: 'Los Angeles Favourite', url:  require('./../../../../assets/images/canvas.png') },
+  { name: 'Black Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas1.png') },
+  { name: 'Grey Suede', price: '98', desc: 'Sold Out', url:  require('./../../../../assets/images/canvas.png') },
+  { name: 'White Canvas', price: '79', desc: '', url:  require('./../../../../assets/images/canvas.png') }
   ];
   sizeList = [{
     size: 5,
@@ -106,7 +106,7 @@ export class ProductDetailComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe((products: products.Product[]) => {
       this.products = products;
-      this.getProduct(this.products[3].id);
+      this.getProduct(this.products[2].id);
     });
   }
   getProduct(productId) {
@@ -128,6 +128,7 @@ export class ProductDetailComponent implements OnInit {
   }
   getImagebyProductId(image: products.ProductImage) {
     this.productService.getImagebyProductIdImageId(image.productId, image.id).subscribe((img: products.ProductImage) => {
+      // console.log(img);
       this.image = img;
     });
   }

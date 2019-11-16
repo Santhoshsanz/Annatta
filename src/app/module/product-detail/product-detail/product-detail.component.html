@@ -1,6 +1,6 @@
 <div class="product-wrapper-container">
     <!-- Decription -->
-    <div class="row pad-25">
+    <div class="row inner-pad-25">
         <!-- Size Chart -->
         <div class="cl-4 cl-xs-12 cl order-xs-1">
             <div class="pad-25 w100">
@@ -34,7 +34,7 @@
                             <span>SELECT COLOR</span>
                             <div class="colors c-flex c-align-center">
                                 <div class="marker-container" *ngFor="let color of colorPallete;let i=index" [ngClass]="{'active': i==6}">
-                                    <div class="marker" [ngStyle]="{ 'background-color': color }" ></div>
+                                    <div class="marker" [ngStyle]="{ 'background-color': color }"></div>
                                 </div>
                                 <div class="marker-container">
                                     <div class="marker marker-multi"></div>
@@ -66,15 +66,16 @@
         </div>
         <!-- Product Details -->
         <div class="cl-8 cl-xs-12 cl">
-            <div class="pad-25 w100">
+            <div class="inner-pad-25 w100">
                 <div class="c-flex column">
                     <div class="product-main-image c-flex c-center">
                         <img [src]="image?.url">
                     </div>
                     <div class="carousel-container c-flex c-center">
-                        <div class="thumbnail c-flex c-center c-align-center" *ngFor="let image of images;">
-                            <img [src]="image?.url" (click)="getImagebyProductId(image)">
-                        </div>
+                            <!-- <div class="overlay"></div> -->
+                        <!-- Caorusel -->
+                        <div class="car-container thumbnail-container" ng2-carouselamos [width]="" [items]="images" [$item]="itemTemplateThumbnail"
+                            [$prev]="prevTemplateThumbnail" [$next]="nextTemplateThumbnail" (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index;getImagebyProductId($event.item)"></div>
                     </div>
                 </div>
             </div>
@@ -90,9 +91,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="cl">
-                <div class="car-container" ng2-carouselamos [width]="" [items]="listOfItems" [$item]="itemTemplate" [$prev]="prevTemplate"
+            <div class="cl rel">
+                <div class="overlay"></div>
+                <div class="car-container d-show" ng2-carouselamos [width]="" [items]="listOfItems" [$item]="itemTemplate" [$prev]="prevTemplate"
                     [$next]="nextTemplate" (onSelectedItem)="selectedItem = $event.item; selectedIndex = $event.index"></div>
+                   <div class="d-show-12 car-container md-view">
+                        <div class="product-wrapper" *ngFor="let item of listOfItems.slice(0,4);">
+                                <div class="product-image">
+                                    <div class="description" *ngIf="item?.desc">
+                                        {{item?.desc}}
+                                    </div>
+                                    <img [src]="item?.url">
+                                </div>
+                                <div class="product-text c-flex column">
+                                    <span class="name">{{item?.name}}</span>
+                                    <span class="price">${{item?.price}}</span>
+                                </div>
+                            </div>
+                   </div>
             </div>
         </div>
     </div>
@@ -130,4 +146,23 @@
             </div>
         </div>
     </ng-template>
+    <ng-template #prevTemplateThumbnail>
+        <span>
+            <img class="arrowL" [src]="arrowLeft">
+        </span>
+    </ng-template>
+
+    <ng-template #nextTemplateThumbnail>
+        <span>
+            <img class="arrowR" [src]="arrowRight">
+        </span>
+    </ng-template>
+
+    <ng-template let-item let-i="index" #itemTemplateThumbnail>
+        <!-- *ngFor="let image of images;" -->
+        <div class="thumbnail c-flex c-center c-align-center">
+            <img [src]="item?.url">
+        </div>
+    </ng-template>
 </div>
+<!-- {{image|json}} -->

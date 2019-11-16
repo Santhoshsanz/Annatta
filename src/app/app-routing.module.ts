@@ -4,10 +4,15 @@ import { ProductDetailComponent } from 'src/app/module/product-detail/product-de
 
 
 const routes: Routes = [{
-  path: '',
+  path: 'Annatta',
   loadChildren: () => import('./module/product-detail/product-detail.module').then(m => m.ProductDetailModule)
   // component: ProductDetailComponent
-}];
+}, {
+  path: '**',
+  pathMatch: 'full',
+  redirectTo: 'Annatta'
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

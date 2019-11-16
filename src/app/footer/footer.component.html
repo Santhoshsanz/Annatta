@@ -38,11 +38,30 @@
                     <ul>
                         <li *ngFor="let list of stores">{{list}}</li>
                     </ul>
+                    <ul class="straight d-show">
+                        <li class="c-flex border-class">
+                            <input class="search" placeholder="Find your sneakers here">
+                            <img class="searchIcon" [src]="search">
+                        </li>
+                    </ul>
                 </div>
                 <div class="listing">
                     <h4>NewsLetter</h4>
-                    <ul>
-                        <li *ngFor="let list of stores">{{list}}</li>
+                    <ul class="straight">
+                        <li>
+                            <input placeholder="Enter email">
+                        </li>
+                        <li>
+                            <div>JOIN US</div>
+                        </li>
+                    </ul>
+                    <ul class="straight">
+                        <li class="log">
+                            <img [src]="fb">
+                        </li>
+                        <li class="log">
+                            <img [src]="insta">
+                        </li>
                     </ul>
                 </div>
             </div>
