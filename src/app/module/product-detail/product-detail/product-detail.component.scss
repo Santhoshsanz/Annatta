@@ -30,7 +30,7 @@
         color: #4A4A4A;
         letter-spacing: 0;
         text-align: right;
-        font-size: 12px; 
+        font-size: 12px;
         max-width: 400px;
         max-height: 44px;
         margin-bottom: 32px;
@@ -57,7 +57,7 @@
                 margin-right: 12px
             }
         }
-        .description{
+        .description {
             text-align: left;
         }
     }
@@ -254,6 +254,11 @@
         &.thumbnail-container {
             max-width: 590px;
             ::ng-deep {
+                .ng2-carouselamos {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
                 .ng2-carouselamos-wrapper {
                     max-width: 590px !important;
                     width: 100% !important; // margin-right: 50px;
@@ -336,7 +341,7 @@
                     margin-right: 6px;
                     max-width: 48%;
                     .product-image {
-                        img{
+                        img {
                             max-width: 100%
                         }
                     }

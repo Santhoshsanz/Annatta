@@ -108,7 +108,7 @@ export class ProductDetailComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe((products: products.Product[]) => {
       this.products = products;
-      this.getProduct(this.products[2].id);
+      this.getProduct(this.products[4].id);
     });
   }
   // Get Product
